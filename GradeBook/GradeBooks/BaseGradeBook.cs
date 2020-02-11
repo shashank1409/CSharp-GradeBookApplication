@@ -9,17 +9,18 @@ using Newtonsoft.Json.Linq;
 
 namespace GradeBook.GradeBooks
 {
-    public abstract class BaseGradeBook
+    public abstract  class BaseGradeBook
     {
-       
+       public bool isWeighted { get; set; }
         public string Name { get; set; }
         public List<Student> Students { get; set; }
 
         public GradeBookType Type { get; set; }
-        public BaseGradeBook(string name)
+        public BaseGradeBook(string name, bool isWeighted)
         {
             this.Name = name;
             Students = new List<Student>();
+            this.isWeighted = isWeighted;
 
         }
 
@@ -108,21 +109,53 @@ namespace GradeBook.GradeBooks
         }
 
         public virtual double GetGPA(char letterGrade, StudentType studentType)
-        {
-            switch (letterGrade)
+        { 
+            if (letterGrade == 'A')
             {
-                case 'A':
+                if (isWeighted)
+                {
+                    return 5;
+                }
+                else
+                {
                     return 4;
-                case 'B':
-                    return 3;
-                case 'C':
-                    return 2;
-                case 'D':
-                    return 1;
-                case 'F':
-                    return 0;
+                }
             }
-            return 0;
+            else if (letterGrade == 'B')
+            {
+                if (isWeighted)
+                {
+                    return 4;
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+            else if (letterGrade == 'C')
+            {
+                if (isWeighted)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            else if (letterGrade == 'D')
+            {
+                if (isWeighted)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+                return 0;
         }
 
         public virtual void CalculateStatistics()
