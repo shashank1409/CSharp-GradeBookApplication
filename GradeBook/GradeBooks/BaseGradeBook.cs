@@ -112,7 +112,7 @@ namespace GradeBook.GradeBooks
         { 
             if (letterGrade == 'A')
             {
-                if (IsWeighted && (studentType.Equals("Honors")|| studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType==StudentType.Honors|| studentType==StudentType.DualEnrolled))
                 {
                     return 5;
                 }
@@ -123,7 +123,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'B')
             {
-                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
                 {
                     return 4;
                 }
@@ -134,7 +134,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'C')
             {
-                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
                 {
                     return 3;
                 }
@@ -145,7 +145,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'D')
             {
-                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
                 {
                     return 2;
                 }
