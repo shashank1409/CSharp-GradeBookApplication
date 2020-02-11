@@ -18,39 +18,19 @@ namespace GradeBook.GradeBooks
             {
                 throw new InvalidOperationException();
             }
-            int highGrade = 0;
-            int lowGrade = 0;
             var threshold = (int)Math.Ceiling(Students.Count * 0.2);
             var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
-           /* for (int i = 1; i <= Students.Count; i++) { 
-                if(Students.)
-            }*/
-                int count = 0;
-            for (int i = 1; i <=Students.Count; i++)
-            { 
-                if(i%threshold==0)
-                {
-                    count++;
-                }
-                if(count==1)
-                {
-                    return 'D';
-                }
-                else if(count==2)
-                {
-                    return 'C';
-                }
-                else if (count == 3)
-                {
-                    return 'B';
-                }
-                else if (count == 4)
-                {
-                    return 'A';
-                }
-            }
-            
-            return 'F';
+           
+            if (grades[threshold - 1] <= averageGrade)
+                return 'A';
+            else if (grades[(threshold * 2) - 1]<=averageGrade)
+                return 'B';
+            else if (grades[(threshold * 3) - 1] <= averageGrade)
+                return 'C';
+            else if (grades[(threshold * 4) - 1] <= averageGrade)
+                return 'D';
+            else
+                return 'F';
         }
     }
 }
