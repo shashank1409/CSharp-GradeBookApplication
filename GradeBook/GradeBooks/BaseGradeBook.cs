@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace GradeBook.GradeBooks
 {
-    public class BaseGradeBook
+    public abstract class BaseGradeBook
     {
        
         public string Name { get; set; }
@@ -268,6 +268,11 @@ namespace GradeBook.GradeBooks
                              select type).FirstOrDefault();
             
             return JsonConvert.DeserializeObject(json, gradebook);
+        }
+
+        public static implicit operator BaseGradeBook(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
