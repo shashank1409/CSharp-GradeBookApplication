@@ -112,7 +112,7 @@ namespace GradeBook.GradeBooks
         { 
             if (letterGrade == 'A')
             {
-                if (isWeighted)
+                if (isWeighted && (studentType.Equals("Honors")|| studentType.Equals("DualEnrolled")))
                 {
                     return 5;
                 }
@@ -123,7 +123,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'B')
             {
-                if (isWeighted)
+                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 4;
                 }
@@ -134,7 +134,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'C')
             {
-                if (isWeighted)
+                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 3;
                 }
@@ -145,7 +145,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'D')
             {
-                if (isWeighted)
+                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 2;
                 }
