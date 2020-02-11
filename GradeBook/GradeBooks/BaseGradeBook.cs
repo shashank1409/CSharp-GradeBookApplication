@@ -11,16 +11,16 @@ namespace GradeBook.GradeBooks
 {
     public abstract  class BaseGradeBook
     {
-       public bool isWeighted { get; set; }
         public string Name { get; set; }
         public List<Student> Students { get; set; }
 
         public GradeBookType Type { get; set; }
+        public bool IsWeighted { get; set; }
         public BaseGradeBook(string name, bool isWeighted)
         {
             this.Name = name;
             Students = new List<Student>();
-            this.isWeighted = isWeighted;
+            this.IsWeighted = isWeighted;
 
         }
 
@@ -112,7 +112,7 @@ namespace GradeBook.GradeBooks
         { 
             if (letterGrade == 'A')
             {
-                if (isWeighted && (studentType.Equals("Honors")|| studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType.Equals("Honors")|| studentType.Equals("DualEnrolled")))
                 {
                     return 5;
                 }
@@ -123,7 +123,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'B')
             {
-                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 4;
                 }
@@ -134,7 +134,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'C')
             {
-                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 3;
                 }
@@ -145,7 +145,7 @@ namespace GradeBook.GradeBooks
             }
             else if (letterGrade == 'D')
             {
-                if (isWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                if (IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 {
                     return 2;
                 }
