@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using GradeBook.Enums;
 
@@ -17,9 +18,14 @@ namespace GradeBook.GradeBooks
             {
                 throw new InvalidOperationException();
             }
+            int highGrade = 0;
+            int lowGrade = 0;
             var threshold = (int)Math.Ceiling(Students.Count * 0.2);
-            Students.Sort();
-            int count = 0;
+            var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
+           /* for (int i = 1; i <= Students.Count; i++) { 
+                if(Students.)
+            }*/
+                int count = 0;
             for (int i = 1; i <=Students.Count; i++)
             { 
                 if(i%threshold==0)
